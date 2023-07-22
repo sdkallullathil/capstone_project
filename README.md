@@ -46,7 +46,7 @@ We have constructed our infrastructure using AWS to create a simulated hybrid-cl
 <br/>
 <p>A software solution provider is planning to transition to the cloud, specifically Amazon Web Services (AWS). The company needs to establish both a production environment and a non-production (development) environment. For the production environment, they require a website to sell licenses/subscriptions and a database to store sensitive customer information like personally identifiable data (PII) such as name, address, phone number, birthday, and gender. Customers will access the website using login credentials. The non-production environment is meant for testing and development, requiring various operating systems. Additionally, the company has requested a secure VPN connection to link their on-premises systems with the cloud environment.</p>
 <br/>
-<img src="https://github.com/sdkallullathil/capstone_project/blob/7bc9ce23581153fb3879f91db6ec9b48d6c4334f/Team1_Slides_Final.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/sdkallullathil/capstone_project/blob/7bc9ce23581153fb3879f91db6ec9b48d6c4334f/Team1_Slides_Final.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <b>Full Infrastructure Diagram: </b>
@@ -69,16 +69,39 @@ Lastly, a "simulated" on-premises VPC has been implemented to virtually represen
 <b>Infrastructure As a Code: </b>
 <br />
 <br/>
-In our AWS cloud infrastructure, we have extensively utilized Terraform for deployment purposes. Terraform empowers us with infrastructure as code (IaC) capabilities, allowing the management and provisioning of AWS resources through declarative code. This approach streamlines the deployment process, eliminating manual errors and ensuring consistency. Moreover, Terraform offers an extensive range of AWS provider resources, facilitating the creation and management of diverse AWS services and configurations. Its modular and reusable code structure further enhances scalability and simplifies maintenance tasks.
+In our AWS cloud infrastructure, we have extensively utilized <b>Terraform</b> for deployment purposes. Terraform empowers us with infrastructure as code (IaC) capabilities, allowing the management and provisioning of AWS resources through declarative code. This approach streamlines the deployment process, eliminating manual errors and ensuring consistency. Moreover, Terraform offers an extensive range of AWS provider resources, facilitating the creation and management of diverse AWS services and configurations. Its modular and reusable code structure further enhances scalability and simplifies maintenance tasks.
 <br/>
 <br />
 <img src="https://github.com/sdkallullathil/capstone_project/blob/9c2cd70727f210d8ad68e6751aac3906599b4c8d/Screenshot%202023-07-22%20at%2011.06.48%20AM.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
+<br />
 
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<h3>Production Environment - 3 Tier Architecture</h3>
+<br />
+<b>Resource Map: </b>
 <br />
 <br />
+Public Subnets are connected to the internet via an internet gateway.
+<br/>
+<img src="https://github.com/sdkallullathil/capstone_project/blob/ea42ae98c212759930f2c00990da3d944ebe0b99/Screenshot%202023-07-06%20at%2010.29.21%20AM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Private Subnets are connected to the internet via an Network Address Translation (NAT) gateway.
+<br/>
+<img src="https://github.com/sdkallullathil/capstone_project/blob/ea42ae98c212759930f2c00990da3d944ebe0b99/Screenshot%202023-07-22%20at%2012.28.32%20PM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<b>Web layer: </b>
+<br />
+<br />
+The Web layer hosts a website designed for selling licenses/subscriptions, and customers can access this website by providing their login credentials. For demonstration purposes, we have created a sample website to showcase its functionality.
+<br/>
+<img src="https://github.com/sdkallullathil/capstone_project/blob/ea42ae98c212759930f2c00990da3d944ebe0b99/Screenshot%202023-07-22%20at%2012.28.32%20PM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+
+
 Sanitization complete:  <br/>
 <img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
