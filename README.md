@@ -41,8 +41,6 @@ We have constructed our infrastructure using AWS to create a simulated hybrid-cl
 <h2>Project walk-through:</h2>
 
 <p align="left">
-
-<br />
 <br />
 <b>Business Scenario: </b>
 <br/>
@@ -51,15 +49,34 @@ We have constructed our infrastructure using AWS to create a simulated hybrid-cl
 <img src="https://github.com/sdkallullathil/capstone_project/blob/7bc9ce23581153fb3879f91db6ec9b48d6c4334f/Team1_Slides_Final.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<b>Full Infrastructure Diagram: </b>
+<br />
+<br/>
+The provided infrastructure diagram illustrates the architecture designed for this specific scenario, featuring three distinct Virtual Private Clouds (VPCs).
+<br/>
+<br/>
+<img src="https://github.com/sdkallullathil/capstone_project/blob/8c507978bdc56371f020aef566837cc2f238d251/capstone_team1.drawio.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Confirm your selection:  <br/>
+The Production (Prod) VPC is organized in a three-tier architecture spread across two availability zones. It comprises the presentation (or Web) tier, the logic (or App) tier, and the data tier. The presentation tier contains key components responsible for direct user interactions, including the business's e-Commerce website. The logic tier houses essential code that translates user actions into functional application behavior. Meanwhile, the data tier acts as a secure storage medium for the relevant application data. High availability is ensured by deploying all compute and storage resources across two availability zones. Additionally, autoscaling groups are employed for the Web and App tiers, allowing dynamic instance additions or removals based on health checks or scaling policies. This approach ensures continuous availability while optimizing cost management.
+<br/>
+<br/>
+The Development (Non-Prod) VPC serves as a dedicated environment for comprehensive software testing, experimentation with various operating systems, and crucial debugging and troubleshooting activities.
+
+Lastly, a "simulated" on-premises VPC has been implemented to virtually represent the business's physical office space. This VPC hosts a VPN gateway enabling site-to-site VPN connections between the on-premises infrastructure and the cloud environment. This ensures seamless and secure communication between the two environments. <br/>
+<br />
+<br />
+<b>Infrastructure As a Code: </b>
+<br />
+<br/>
+In our AWS cloud infrastructure, we have extensively utilized Terraform for deployment purposes. Terraform empowers us with infrastructure as code (IaC) capabilities, allowing the management and provisioning of AWS resources through declarative code. This approach streamlines the deployment process, eliminating manual errors and ensuring consistency. Moreover, Terraform offers an extensive range of AWS provider resources, facilitating the creation and management of diverse AWS services and configurations. Its modular and reusable code structure further enhances scalability and simplifies maintenance tasks.
+Wait for process to complete (may take some time):  <br/>
+<br />
+<br />
 <img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Wait for process to complete (may take some time):  <br/>
+
 <img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
