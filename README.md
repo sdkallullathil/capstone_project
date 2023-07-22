@@ -16,7 +16,7 @@ We have constructed our infrastructure using AWS to create a simulated hybrid-cl
 <br />
 
 
-<h2>Languages and Utilities Used</h2>
+<h2>Utilities Used</h2>
 
 - <b>Terraform</b> 
 - <b>Tenable.io</b>
