@@ -1,13 +1,18 @@
-# capstone_project
+# Capstone Project
 
-<h1>Capstone Project</h1>
+<h1>Building a Reliable and Safe AWS Simulated Hybrid Cloud Architecture with VPN</h1>
 
 <h2>Description</h2>
+<p>This project represents my capstone experience, completed in collaboration with the Fields Institute at the University of Toronto. As a team of three, we carefully analyzed project requirements and developed a compelling business scenario based on our findings.
+<br/>
+ <br/>
 Consider an imaginary business scenario where a software solution provider aims to migrate to cloud environment, specifically Amazon Web Services (AWS). They need both a production environment, including a website for license sales and a database for storing sensitive customer data, and a non-production environment for testing and development purposes, using diverse operating systems. Additionally, the company seeks secure connectivity between their on-premises systems and the cloud environment, requiring a VPN connection.
-<br />
-
+ <br/>
+ <br/>
 Developing a robust cybersecurity plan for businesses begins with meticulous identification and protection of critical assets. These assets comprise sensitive data like customer information and financial records, along with vital systems such as servers and networks. Additionally, safeguarding the repository of codes and systems within the development cloud environment is crucial for protecting intellectual property (IP) and ensuring smooth business operations.
-With digital transformation and remote work becoming prevalent, the conventional approach of trusting all within the internal network lacks adequate security. Hence, the zero-trust architecture (ZTA) has emerged as a reliable industry best practice. In the subsequent sections, we will introduce ZTA and explore the secure hybrid cloud solution deployed, addressing specific business needs.
+With digital transformation and remote work becoming prevalent, the conventional approach of trusting all within the internal network lacks adequate security. Considering our current compliance to the traditional security model, we acknowledge that the immediate adoption of ZTA is not feasible. We understand that transitioning towards zero trust is a gradual process that may take several years to fully implement. Therefore, our strategy involves introducing elements of zero trust into our infrastructure with a long-term objective in mind. <br/>
+ <br/>
+We have constructed our infrastructure using AWS to create a simulated hybrid-cloud environment, giving utmost importance to adopting Infrastructure as Code (IaC) principles with the help of Terraform. Additionally, we have established vulnerability management by combining Tenable scanners and agents.</p>
 <br />
 
 
@@ -16,16 +21,29 @@ With digital transformation and remote work becoming prevalent, the conventional
 - <b>Terraform</b> 
 - <b>MySQL</b>
 - <b>Tenable.io</b>
+- <b>HMTL</b>
+- <b>SSH</b>
 
-<h2>Environments Used </h2>
+<h2>Cloud Environments Used </h2>
 
-- <b>Windows 10</b> (21H2)
+- <b>Amazon Web Services (AWS)</b>
 
-<h2>Program walk-through:</h2>
+<h2>Team Members</h2>
 
-<p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+- <b>Sangeeth Das Kallullathil</b> 
+- <b>Mojdeh Akhavan</b>
+- <b>Samprit Ghosh</b>
+
+<h2>Organization</h2>
+<p align="left">
+<b>Cyber Connexion Cohort 7 program - Fields Institute - University of Toronto </b>
+
+<h2>Project walk-through:</h2>
+
+<p align="left">
+Business scenario:  <br/>
+
+<img src="[https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps]"/>
 <br />
 <br />
 Select the disk:  <br/>
