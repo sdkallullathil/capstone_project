@@ -95,9 +95,27 @@ Private Subnets are connected to the internet via an Network Address Translation
 <b>Web layer: </b>
 <br />
 <br />
-The Web layer hosts a website designed for selling licenses/subscriptions, and customers can access this website by providing their login credentials. For demonstration purposes, we have created a sample website to showcase its functionality.
+The Web layer consists of two Amazon Linux 2023 instances deployed across two subnets. These instances serve a dual purpose, functioning as both a Bastion host and a web host. An Internet-facing Application Load Balancer ensures the seamless functioning of the Web tier.
+Additionally, the Web layer employs encrypted Amazon Elastic Block Store (EBS) volumes to ensure the security and protection of data.
+
+The primary purpose of the Web layer is to host a website tailored for license and subscription sales. Customers gain access to this website by providing their login credentials. To illustrate the website's capabilities, we have developed a sample version for demonstration purposes.
 <br/>
-<img src="https://github.com/sdkallullathil/capstone_project/blob/ea42ae98c212759930f2c00990da3d944ebe0b99/Screenshot%202023-07-22%20at%2012.28.32%20PM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br/>
+<img src="https://github.com/sdkallullathil/capstone_project/blob/dd16f04a74ecb419858326120217ef67a4de1fa5/website.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+
+<br />
+<br />
+<b>App layer: </b>
+<br />
+<br />
+The App tier is securely placed in the private subnet, ensuring restricted access. To interact with the App tier, access is granted only through the bastion host residing in the Web layer, utilizing SSH access via a 4096-bit RSA public key. An internal application load balancer is employed within the App tier to manage and distribute traffic effectively.
+
+Inside the App tier, the EC2 instance is equipped with MySQL client software, enabling the execution of MySQL queries and facilitating seamless interactions with the database hosted in the data tier. This architecture ensures a robust and controlled environment for managing database operations and enhances the overall security of the system.
+<br/>
+<br/>
+<img src="https://github.com/sdkallullathil/capstone_project/blob/dd16f04a74ecb419858326120217ef67a4de1fa5/website.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 
