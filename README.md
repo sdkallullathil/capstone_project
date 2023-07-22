@@ -19,12 +19,13 @@ We have constructed our infrastructure using AWS to create a simulated hybrid-cl
 <h2>Languages and Utilities Used</h2>
 
 - <b>Terraform</b> 
-- <b>MySQL</b>
 - <b>Tenable.io</b>
+- <b>MySQL</b>
 - <b>HMTL</b>
+- <b>Public Key Infrastructure</b>
 - <b>SSH</b>
 
-<h2>Cloud Environments Used </h2>
+<h2>Cloud Environment </h2>
 
 - <b>Amazon Web Services (AWS)</b>
 
@@ -150,6 +151,13 @@ An example showcases a sample MySQL query execution.
 <br />
 <img src="https://github.com/sdkallullathil/capstone_project/blob/09c9e456828a73435f3787569e87142603d3b398/queryresult.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
+<br />
+<br />
+
+<b>Network Segmentation </b>
+<br />
+<br />
+To improve security, we employ sophisticated network segmentation techniques to establish isolated security zones. This involves implementing stringent access controls and network policies to regulate traffic flow and minimize lateral movement. We use <b>Network Access Control Lists (NACLs)</b> to govern both incoming and outgoing traffic at the subnet level. Furthermore, <b>Security Groups</b> are utilized to control access at the instance level and <b>Application Load Balancers</b>, which manage traffic between different subnets within the production VPC. These measures create a robust security framework, safeguarding our infrastructure and data from unauthorized access and potential threats.
 <br />
 <br />
 
