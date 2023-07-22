@@ -41,9 +41,7 @@ We have constructed our infrastructure using AWS to create a simulated hybrid-cl
 <h2>Project walk-through:</h2>
 
 <p align="left">
-Business scenario:  <br/>
 
-<img src="[https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps]"/>
 <br />
 <br />
 Select the disk:  <br/>
