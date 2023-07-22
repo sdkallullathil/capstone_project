@@ -5,7 +5,7 @@
 <h2>Description</h2>
 <p>This project represents my capstone experience, completed in collaboration with the Fields Institute at the University of Toronto. As a team of three, we carefully analyzed project requirements and developed a compelling business scenario based on our findings.
 <br/>
- <br/>
+<br/>
 Consider an imaginary business scenario where a software solution provider aims to migrate to cloud environment, specifically Amazon Web Services (AWS). They need both a production environment, including a website for license sales and a database for storing sensitive customer data, and a non-production environment for testing and development purposes, using diverse operating systems. Additionally, the company seeks secure connectivity between their on-premises systems and the cloud environment, requiring a VPN connection.
  <br/>
  <br/>
@@ -70,10 +70,9 @@ Lastly, a "simulated" on-premises VPC has been implemented to virtually represen
 <br />
 <br/>
 In our AWS cloud infrastructure, we have extensively utilized Terraform for deployment purposes. Terraform empowers us with infrastructure as code (IaC) capabilities, allowing the management and provisioning of AWS resources through declarative code. This approach streamlines the deployment process, eliminating manual errors and ensuring consistency. Moreover, Terraform offers an extensive range of AWS provider resources, facilitating the creation and management of diverse AWS services and configurations. Its modular and reusable code structure further enhances scalability and simplifies maintenance tasks.
-Wait for process to complete (may take some time):  <br/>
+<br/>
 <br />
-<br />
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/sdkallullathil/capstone_project/blob/9c2cd70727f210d8ad68e6751aac3906599b4c8d/Screenshot%202023-07-22%20at%2011.06.48%20AM.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 
