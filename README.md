@@ -84,12 +84,14 @@ In our AWS cloud infrastructure, we have extensively utilized <b>Terraform</b> f
 <br />
 <br />
 Public Subnets are connected to the internet via an internet gateway.
-<br/>
+ <br/>
+ <br/>
 <img src="https://github.com/sdkallullathil/capstone_project/blob/ea42ae98c212759930f2c00990da3d944ebe0b99/Screenshot%202023-07-06%20at%2010.29.21%20AM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 Private Subnets are connected to the internet via an Network Address Translation (NAT) gateway.
-<br/>
+ <br/>
+ <br/>
 <img src="https://github.com/sdkallullathil/capstone_project/blob/ea42ae98c212759930f2c00990da3d944ebe0b99/Screenshot%202023-07-22%20at%2012.28.32%20PM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
@@ -141,12 +143,14 @@ In the app tier, the EC2 instance is equipped with MySQL client software, enabli
 <br/>
 <br/>
 Presented below is the table created in the data tier.
-<br/>
+ <br/>
+ <br/>
 <img src="https://github.com/sdkallullathil/capstone_project/blob/bd0c89d5180e37e52a16d72c78f6317843fab18f/table.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 An example showcases a sample MySQL query execution.
-<br/>
+ <br/>
+ <br/>
 <img src="https://github.com/sdkallullathil/capstone_project/blob/28eb95fcc27bf089ace1420cb3fc40a335686d1d/mysqlquery.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://github.com/sdkallullathil/capstone_project/blob/09c9e456828a73435f3787569e87142603d3b398/queryresult.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
@@ -159,12 +163,18 @@ An example showcases a sample MySQL query execution.
 <br />
 To improve security, we employ sophisticated network segmentation techniques to establish isolated security zones. This involves implementing stringent access controls and network policies to regulate traffic flow and minimize lateral movement. We use <b>Network Access Control Lists (NACLs)</b> to govern both incoming and outgoing traffic at the subnet level. Furthermore, <b>Security Groups</b> are utilized to control access at the instance level and <b>Application Load Balancers</b>, which manage traffic between different subnets within the production VPC. These measures create a robust security framework, safeguarding our infrastructure and data from unauthorized access and potential threats.
 <br />
+Below, we present the network architecture's diverse security groups (SG) intended to regulate traffic flow between different tiers of the system.
+<br />
+<br />
+<img src="https://github.com/sdkallullathil/capstone_project/blob/bf1f5885fdc1b8dd609280bba6d3831f130ad529/sgs.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
 <br />
 
 <b>Identity and Access Management (IAM) </b>
 <br />
 <br />
-To effectively implement this, we leverage robust identity and access management (IAM) tools on AWS. These tools enable us to manage access controls for users, groups, and roles, ensuring authorized access to specific resources following the principle of least privilege. To safeguard the root AWS account, we activate multi-factor authentication (MFA) for an extra layer of security. Administrator users handle daily admin tasks, and non-root users are protected with MFA.
+To effectively implement this, we leverage robust identity and access management (IAM) tools on AWS. These tools enable us to manage access controls for users, groups, and roles, ensuring authorized access to specific resources following <b>the principle of least privilege</b>. To safeguard the root AWS account, we activate multi-factor authentication (MFA) for an extra layer of security. Administrator users handle daily admin tasks, and non-root users are protected with MFA.
 
 For programmatic access to AWS from Terraform, we generate unique, short-term access keys for authorized users, eliminating the need to share passwords or keys. We enhance security and monitor user activities using AWS CloudTrail, ensuring compliance, tracking resource changes, and facilitating troubleshooting.
 
@@ -200,7 +210,7 @@ In our setup, we have deployed Nessus Agents on the EC2 instances within the Web
 
 Using the Nessus Scanner, we executed a Basic Network Scan and a Host Discovery Scan, specifically targeting the EC2 instances within the Non-Prod VPC. These scans enable us to gain valuable insights into the security status of our infrastructure, allowing us to address any potential vulnerabilities and enhance overall security.
 <br/>
-<img src="https://github.com/sdkallullathil/capstone_project/blob/344eb4496b3bc75aa2e84fe8fc423fe1de95268d/nessus.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/sdkallullathil/capstone_project/blob/68d929a1fa5f6b89ce75fe0bce96cb4fe2914fae/Screenshot%202023-07-26%20at%204.00.36%20PM.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 Below is a sample agent scan result from our recent scan on an instance within the production environment. The scan revealed several critical and high-severity vulnerabilities, primarily attributed to outdated software versions. We promptly addressed these vulnerabilities by diligently updating the software, ensuring enhanced security and safeguarding our infrastructure from potential threats.
