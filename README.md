@@ -10,11 +10,9 @@ Consider an imaginary business scenario where a software solution provider aims 
  <br/>
  <br/>
 Developing a robust cybersecurity plan for businesses begins with meticulous identification and protection of critical assets. These assets comprise sensitive data like customer information and financial records, along with vital systems such as servers and networks. Additionally, safeguarding the repository of codes and systems within the development cloud environment is crucial for protecting intellectual property (IP) and ensuring smooth business operations.
-With digital transformation and remote work becoming prevalent, the conventional approach of trusting all within the internal network lacks adequate security. Considering our current compliance to the traditional security model, we acknowledge that the immediate adoption of ZTA is not feasible. We understand that transitioning towards zero trust is a gradual process that may take several years to fully implement. Therefore, our strategy involves introducing elements of zero trust into our infrastructure with a long-term objective in mind. <br/>
+With digital transformation and remote work becoming prevalent, the conventional approach of trusting all within the internal network lacks adequate security. Considering our current compliance to the traditional security model, we recognize the need to incorporate elements of Zero Trust Architecture (ZTA). We acknowledge that the immediate adoption of ZTA is not feasible. We understand that transitioning towards zero trust is a gradual process that may take several years to fully implement. Therefore, our strategy involves introducing elements of zero trust into our infrastructure with a long-term objective in mind. <br/>
  <br/>
 We have constructed our infrastructure using AWS to create a simulated hybrid-cloud environment, giving utmost importance to adopting Infrastructure as Code (IaC) principles with the help of Terraform. Additionally, we have established vulnerability management by combining Tenable scanners and agents.</p>
-<br />
-
 
 <h2>Utilities Used</h2>
 
@@ -24,6 +22,7 @@ We have constructed our infrastructure using AWS to create a simulated hybrid-cl
 - <b>HMTL</b>
 - <b>Public Key Infrastructure</b>
 - <b>SSH</b>
+- <b>AWS KMS</b>
 
 <h2>Cloud Environment </h2>
 
@@ -40,9 +39,7 @@ We have constructed our infrastructure using AWS to create a simulated hybrid-cl
 <b>Cyber Connexion Cohort 7 program - Fields Institute - University of Toronto </b>
 
 <h2>Project walk-through:</h2>
-
 <p align="left">
-<br />
 <b>Business Scenario: </b>
 <br/>
 <p>A software solution provider is planning to transition to the cloud, specifically Amazon Web Services (AWS). The company needs to establish both a production environment and a non-production (development) environment. For the production environment, they require a website to sell licenses/subscriptions and a database to store sensitive customer information like personally identifiable data (PII) such as name, address, phone number, birthday, and gender. Customers will access the website using login credentials. The non-production environment is meant for testing and development, requiring various operating systems. Additionally, the company has requested a secure VPN connection to link their on-premises systems with the cloud environment.</p>
@@ -58,14 +55,12 @@ The provided infrastructure diagram illustrates the architecture designed for th
 <br/>
 <img src="https://github.com/sdkallullathil/capstone_project/blob/8c507978bdc56371f020aef566837cc2f238d251/capstone_team1.drawio.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
-<br />
 The Production (Prod) VPC is organized in a three-tier architecture spread across two availability zones. It comprises the presentation (or Web) tier, the logic (or App) tier, and the data tier. The presentation tier contains key components responsible for direct user interactions, including the business's e-Commerce website. The logic tier houses essential code that translates user actions into functional application behavior. Meanwhile, the data tier acts as a secure storage medium for the relevant application data. High availability is ensured by deploying all compute and storage resources across two availability zones. Additionally, autoscaling groups are employed for the Web and App tiers, allowing dynamic instance additions or removals based on health checks or scaling policies. This approach ensures continuous availability while optimizing cost management.
 <br/>
 <br/>
 The Development (Non-Prod) VPC serves as a dedicated environment for comprehensive software testing, experimentation with various operating systems, and crucial debugging and troubleshooting activities.
 
 Lastly, a "simulated" on-premises VPC has been implemented to virtually represent the business's physical office space. This VPC hosts a VPN gateway enabling site-to-site VPN connections between the on-premises infrastructure and the cloud environment. This ensures seamless and secure communication between the two environments. <br/>
-<br />
 <br />
 <b>Infrastructure As a Code: </b>
 <br />
@@ -76,20 +71,18 @@ In our AWS cloud infrastructure, we have extensively utilized <b>Terraform</b> f
 <img src="https://github.com/sdkallullathil/capstone_project/blob/9c2cd70727f210d8ad68e6751aac3906599b4c8d/Screenshot%202023-07-22%20at%2011.06.48%20AM.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<br />
 
 <h3>Production Environment - 3 Tier Architecture</h3>
-<br />
 <b>Resource Map: </b>
 <br />
 <br />
-Public Subnets are connected to the internet via an internet gateway.
+Public Subnets are connected to the internet via an <b>Internet ateway</b>.
  <br/>
  <br/>
 <img src="https://github.com/sdkallullathil/capstone_project/blob/ea42ae98c212759930f2c00990da3d944ebe0b99/Screenshot%202023-07-06%20at%2010.29.21%20AM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Private Subnets are connected to the internet via an Network Address Translation (NAT) gateway.
+Private Subnets are connected to the internet via an <b>Network Address Translation (NAT) gateway</b>.
  <br/>
  <br/>
 <img src="https://github.com/sdkallullathil/capstone_project/blob/ea42ae98c212759930f2c00990da3d944ebe0b99/Screenshot%202023-07-22%20at%2012.28.32%20PM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -99,21 +92,19 @@ Private Subnets are connected to the internet via an Network Address Translation
 <br />
 <br />
 The Web layer consists of two Amazon Linux 2023 instances deployed across two subnets. These instances serve a dual purpose, functioning as both a Bastion host and a web host. An Internet-facing Application Load Balancer ensures the seamless functioning of the Web tier.
-Additionally, the Web layer employs encrypted Amazon Elastic Block Store (EBS) volumes to ensure the security and protection of data.
+Additionally, the Web layer employs encrypted Amazon <b>Elastic Block Store (EBS)</b> volumes to ensure the security and protection of data.
 
 The primary purpose of the Web layer is to host a website tailored for license and subscription sales. Customers gain access to this website by providing their login credentials. To illustrate the website's capabilities, we have developed a sample version for demonstration purposes.
 <br/>
 <br/>
 <img src="https://github.com/sdkallullathil/capstone_project/blob/dd16f04a74ecb419858326120217ef67a4de1fa5/website.png" height="90%" width="90%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
 
 <br />
 <br />
 <b>App layer: </b>
 <br />
 <br />
-The App tier is securely placed in the private subnet, ensuring restricted access. To interact with the App tier, access is granted only through the bastion host residing in the Web layer, utilizing SSH access via a 4096-bit RSA public key. An internal application load balancer is employed within the App tier to manage and distribute traffic effectively.
+The App tier is securely placed in the private subnet, ensuring restricted access. To interact with the App tier, access is granted only through the bastion host residing in the Web layer, utilizing <b>SSH</b> access via a 4096-bit <b>RSA public key</b>. An <b>internal application load balancer</b> is employed within the App tier to manage and distribute traffic effectively.
 <br />
 <br />
 Inside the App tier, the EC2 instance is equipped with MySQL client software, enabling the execution of MySQL queries and facilitating seamless interactions with the database hosted in the data tier. This architecture ensures a robust and controlled environment for managing database operations and enhances the overall security of the system.
